@@ -9,10 +9,14 @@ class Config {
   /// Constructor
   const Config({
     this.height = 256,
-    this.swapCategoryAndBottomBar = false,
     this.checkPlatformCompatibility = true,
     this.emojiSet = defaultEmojiSet,
     this.emojiTextStyle,
+    this.itemsOrderConfig = const ItemsOrderConfig(
+      top: EmojiPickerItem.categoryBar,
+      middle: EmojiPickerItem.emojiView,
+      bottom: EmojiPickerItem.searchBar,
+    ),
     this.emojiViewConfig = const EmojiViewConfig(),
     this.skinToneConfig = const SkinToneConfig(),
     this.categoryViewConfig = const CategoryViewConfig(),
@@ -22,9 +26,6 @@ class Config {
 
   /// Max Height of the Emoji's view
   final double height;
-
-  /// Swap the category view and bottom bar (category bottom and bottom bar top)
-  final bool swapCategoryAndBottomBar;
 
   /// Verify that emoji glyph is supported by the platform (Android only)
   final bool checkPlatformCompatibility;
@@ -41,6 +42,9 @@ class Config {
   ///
   /// This has priority over [EmojiViewConfig.emojiSizeMax] if font size is set.
   final TextStyle? emojiTextStyle;
+
+  /// Config for items in order to show in UI
+  final ItemsOrderConfig itemsOrderConfig;
 
   /// Emoji view config
   final EmojiViewConfig emojiViewConfig;
@@ -60,7 +64,7 @@ class Config {
   @override
   bool operator ==(other) {
     return (other is Config) &&
-        other.swapCategoryAndBottomBar == swapCategoryAndBottomBar &&
+        other.itemsOrderConfig == itemsOrderConfig &&
         other.checkPlatformCompatibility == checkPlatformCompatibility &&
         other.emojiSet == emojiSet &&
         other.emojiTextStyle == emojiTextStyle &&
@@ -72,7 +76,7 @@ class Config {
 
   @override
   int get hashCode =>
-      swapCategoryAndBottomBar.hashCode ^
+      itemsOrderConfig.hashCode ^
       checkPlatformCompatibility.hashCode ^
       emojiSet.hashCode ^
       (emojiTextStyle?.hashCode ?? 0) ^

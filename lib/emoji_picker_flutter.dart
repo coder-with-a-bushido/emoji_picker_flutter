@@ -23,6 +23,7 @@ export 'package:emoji_picker_flutter/src/emoji_view/emoji_container.dart';
 export 'package:emoji_picker_flutter/src/emoji_view/emoji_picker_view.dart';
 export 'package:emoji_picker_flutter/src/emoji_view/emoji_view_config.dart';
 export 'package:emoji_picker_flutter/src/emoji_view_state.dart';
+export 'package:emoji_picker_flutter/src/items_order_config.dart';
 export 'package:emoji_picker_flutter/src/recent_emoji.dart';
 export 'package:emoji_picker_flutter/src/search_view/default_search_view.dart';
 export 'package:emoji_picker_flutter/src/search_view/search_view.dart';
